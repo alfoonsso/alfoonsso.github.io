@@ -98,7 +98,7 @@ const modoGeografia = [
 ]
 
 const categoriaRegiones = [
-    "Centroeuropa","Europa del este","Mediterráneo","Asia Oriental","Sudeste Asiático","Asia Meridional y Occidental","Norteamérica","América del Sur", "Escandinavia"
+    "Centroeuropa","Europa del este","Mediterráneo","Asia Oriental","Sudeste Asiático","Asia Meridional","Asia Occidental","Norteamérica","América del Sur", "Escandinavia"
 ]
 
 const categoriaPaises = [
