@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One, Two, Three</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="https://kit.fontawesome.com/ba06072393.js" crossorigin="anonymous"></script>
+</head>
+<body onload="inicializarJuego('inicio')" class="modo-alto-lapiz">
+    <header>
+        <div class="header-content">
+            <div class="header-icons"> 
+                <div class="social-icons">
+                    <a href="https://instagram.com/alfonsso.j" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/alfoonsso" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://letterboxd.com/alfoonsso" target="_blank" title="Letterboxd">
+                        <i class="fa-brands fa-square-letterboxd"></i>
+                    </a>
+                    <a href="https://github.com/alfoonsso" target="_blank" title="Github">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+                <div id="help-icon" class="help-icon">
+                    <a href="#" title="Ayuda">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </a>
+                </div>
+            </div>        
+            <button id="inicio" onclick="inicializarJuego('inicio')">
+                <h1>One, Two, Three</h1>
+            </button>
+            <nav class="navigation">
+                <ul>     
+                    <li><button id="facil" onclick="inicializarJuego('facil')">Nivel Fácil</button></li>
+                    <li><button id="medio" onclick="inicializarJuego('medio')">Nivel Medio</button></a></li>
+                    <li><button id="dificil" onclick="inicializarJuego('dificil')">Nivel Difícil</button></li>
+                    <li><button id="base" onclick="inicializarJuego('base')">Modo Total</button></li>
+                    <li><button id="geografia" onclick="inicializarJuego('geografia')">Modo Mapa</button></li>
+                    <li><button id="altolapiz" onclick="inicializarJuego('altolapiz')">Modo Alto el Lápiz</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="pantallaInicio" class="pantalla-inicio">
+        <div class="side-presentation">
+            <h1>🎬 ¡Bienvenido a One, Two, Three!</h1>
+            <p id="texto-nivel" class="text-nivel"></p>
+            <p id="quote"></p>
+            <div class="botones-modos">
+                <button onclick="inicializarJuego('facil')"><b>Nivel Fácil</b></button>
+                <button onclick="inicializarJuego('medio')"><b>Nivel Medio</b></button>
+                <button onclick="inicializarJuego('dificil')"><b>Nivel Difícil</b></button>
+                <button onclick="inicializarJuego('base')"><b>Modo Total</b></button>
+                <button onclick="inicializarJuego('geografia')"><b>Modo Mapa</b></button>
+                <button onclick="inicializarJuego('altolapiz')"><b>Modo Alto el Lápiz</b></button>
+            </div>            
+        </div>
+    </div>
+    <div id="pantallaJuego" class="pantalla-juego" style="display: none;">
+        <div id="tablero"></div>
+        <div id="informacion-juego">
+            <div id="contador">Intentos restantes: 9</div>    
+            <div id="puntuacion">Puntuación: 0</div>
+            <div id="puntuacionMaxima">Récord: 0</div>
+            <button id="rendirseBtn">Rendirse</button>      
+        </div>        
+        <div id="mensajeFin" style="display: none;">
+            <h2 id="mensajeFinTexto"></h2>
+            <p><span id="puntuacionFinal"></span></p>
+            <button id="reiniciar-juego" onclick="reiniciarJuego()">Reiniciar Juego</button>
+        </div>
+    </div>
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <h2>Cómo se juega</h2>
+            <p>
+               <br> Selecciona una película para cada celda usando las pistas que corresponden a las filas y columnas de cada celda. <br> <br>
+                Las películas del desplegable están ordenadas por popularidad.<br><br>
+                Introduces el nombre de una película y debes seleccionar la película exacta introduciendo un número. <br><br>
+                Tienes 9 intentos para completar cada partida. <br><br>
+                Cada película, ya sea correcta o incorrecta, contará como un fallo. <br><br>
+                Si estás en el menú para seleccionar una película y cancelas, también contará como un fallo. <br><br>
+                Si aparece un póster tras elegir la película, ¡has acertado! Vas por el buen camino. <br><br>
+                Una palabra que contenga un guion, cuenta como una sola palabra. <br><br>
+            </p>
+            <button id="close-modal">¡Vamos!</button>
+        </div>
+    </div>  
+    <footer>
+        <div class="footer-content">
+            <a><img src="assets_imagenes/tmdb.png" alt="Powered by TMDB" class="tmdb"></a>
+            <p>&copy; 2024 One, Two, Three</p>
+            <ul>
+                <li><a href="#">Política de privacidad</a></li>
+                <li> · </li>
+                <li><a href="#">Términos de servicio</a></li>
+                <li> · </li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="categorias.js"></script>
+    <script src="moviegrid.js"></script>
+    <script src="quotes.js"></script>
+</body>
+</html>
