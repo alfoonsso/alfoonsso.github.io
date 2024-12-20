@@ -36,8 +36,9 @@
             </button>
             <nav class="navigation">
                 <ul>     
+                    <li><button id="actores" onclick="inicializarJuego('actores')">Modo Actores</button></li>
                     <li><button id="facil" onclick="inicializarJuego('facil')">Nivel Fácil</button></li>
-                    <li><button id="medio" onclick="inicializarJuego('medio')">Nivel Medio</button></a></li>
+                    <li><button id="medio" onclick="inicializarJuego('medio')">Nivel Medio</button></li>
                     <li><button id="dificil" onclick="inicializarJuego('dificil')">Nivel Difícil</button></li>
                     <li><button id="base" onclick="inicializarJuego('base')">Modo Total</button></li>
                     <li><button id="geografia" onclick="inicializarJuego('geografia')">Modo Mapa</button></li>
@@ -52,6 +53,7 @@
             <p id="texto-nivel" class="text-nivel"></p>
             <p id="quote"></p>
             <div class="botones-modos">
+                <button onclick="inicializarJuego('actores')"><b>Modo Actores</b></button>
                 <button onclick="inicializarJuego('facil')"><b>Nivel Fácil</b></button>
                 <button onclick="inicializarJuego('medio')"><b>Nivel Medio</b></button>
                 <button onclick="inicializarJuego('dificil')"><b>Nivel Difícil</b></button>
@@ -104,6 +106,7 @@
             </ul>
         </div>
     </footer>
+    <script src="datos.js"></script>
     <script src="categorias.js"></script>
     <script src="moviegrid.js"></script>
     <script src="quotes.js"></script>
