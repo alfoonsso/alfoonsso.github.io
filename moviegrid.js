@@ -169,45 +169,7 @@
         return peliculas[indice];
     }
 
-    const regiones = {
-        "Centroeuropa": [
-            "DE", "HU", "SK", "BE", "CZ", "GB", "NL", "LU", "AT", "PL", "FR", "CS" // CS : Checoslovaquia
-        ],
-        "Europa del este": [
-            "RU", "SU", "RO", "UA", "BA", "BY", "LV", "LT", "EE", "MD", "GE", "HR", "SI", "RS", "ME", "MK", "XK" // SU : URSS
-        ],
-        "Escandinavia": [
-            "SE", "NO", "FL", "IS", "DK"
-        ],
-        "Mediterráneo": [
-            "ES", "PT", "IT", "TR", "CY", "MT", "GR"
-        ],
-        "Asia Oriental": [
-            "CN", "JP", "KR", "MN", "TW", "HK"
-        ],
-        "Sudeste Asiático": [
-            "TH", "VN", "PH", "ID", "MY", "SG", "MM", "KH", "LA", "BN", "TL"
-        ],
-        "Asia Meridional": [
-            "IN", "PK", "BD", "LK", "AF"
-        ],
-        "Asia Occidental": [
-            "IR", "IL", "PS", "SA", "YE", "OM", "QA", "AE", "BH", "KW", "JO", "AM", "AZ", "SY", "LB", "IQ"
-        ],
-        "Norteamérica": [
-            "US", "CA", "MX"
-        ],
-        "América del Sur": [
-            "BR", "AR", "CL", "CO", "PE", "EC", "BO", "PY", "UY"
-        ],
-        "África": [
-            "DZ", "AO", "BJ", "BW", "BF", "BI", "CM", "CV", "CF", "TD", "KM", "CD", "CG", "DJ", "EG", "GQ", "ER", "SZ", "ET", "GA", "GM", "GH", "GN", "GW", "CI", "KE", "LS", "LR", "LY", "MG", "MW", "ML", "MR", "MU", "MA", "MZ", "NA", "NE", "NG", "RW", "ST", "SN", "SC", "SL", "SO", "ZA", "SS", "SD", "TZ", "TG", "TN", "UG", "ZM", "ZW"
-        ]
-    };
-
-    const paises = {
-        "Japón": ["JP"],"China": ["CN"],"Brasil": ["BR"],"Argentina": ["AR"],"Chile": ["CL"],"México": ["MX"],"Canadá": ["CA"],"Francia": ["FR"],"Italia": ["IT"],"España": ["ES"],"Dinamarca": ["DK"],"Suecia": ["SE"],"Noruega": ["NO"],"Islandia": ["IS"],"Alemania": ["DE"],"República Checa": ["CZ", "CS"],"Holanda": ["NL"],"Polonia": ["PL"],"Rusia": ["RU", "SU"],"Turquía": ["TR"],"Grecia": ["GR"],"Rumanía": ["RO"],"Hong Kong": ["HK"],"Corea del Sur": ["KR"],"Taiwán": ["TW"],"Tailandia": ["TH"],"Vietnam": ["VN"],"India": ["IN"],"Filipinas": ["PH"],"Indonesia": ["ID"],"Irán": ["IR"]
-    };
+    
 
     // Director
     async function validarCategoria(pelicula, categoria) {
@@ -253,6 +215,15 @@
             const directores = datos.credits?.crew?.filter(persona => persona.job === 'Director') || [];
             console.log("Directores encontrados:", directores);
             return directores.some(director => director.name.toLowerCase() === directorEsperado.toLowerCase());
+        }
+        if (categoria.startsWith("Actor: ")) {
+            const actorEsperado = categoria.replace("Actor: ", "").trim();
+            const actores = datos.credits?.cast || [];
+            return actores.some(actor => actor.name.toLowerCase() === actorEsperado.toLowerCase());
+        } else if(categoria.startsWith("Actriz: ")) {
+            const actrizEsperada = categoria.replace("Actriz: ", "").trim();
+            const actrices = datos.credits?.cast || [];
+            return actrices.some(actriz => actriz.name.toLowerCase() === actrizEsperada.toLowerCase());
         }
 
         return false;  // Si no coincide con ninguna categoría, devuelve false
@@ -467,13 +438,15 @@
             ({ filas, columnas } = generarCategorias("geografia"));
             intentosRestantes = 9;
             actualizarContador();
-        } 
-        /*else if(nivel === "altolapiz"){
+        } else if(nivel === "altolapiz") {
             ({ filas, columnas } = generarCategorias("altolapiz"));
             intentosRestantes = 27;
             actualizarContador();
-        } */
-            else if(nivel === "base") {
+        } else if (nivel === "actores") {
+            ({ filas, columnas } = generarCategorias("actores"));
+            intentosRestantes = 9;
+            actualizarContador();
+        } else if (nivel === "base") {
             ({ filas, columnas } = generarCategorias("base")); // Nivel predeterminado
             intentosRestantes = 9;
             actualizarContador();
