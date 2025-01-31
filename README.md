@@ -1,5 +1,7 @@
 # alfoonsso.github.io
 
+# En proceso. Inacabado.
+
 # One, Two, Three - Versión Personalizada
 
 One, Two, Three es un juego web donde los jugadores deben introducir películas en una cuadrícula según las combinaciones de categorías que aparecen en cada fila y columna. Esta versión personalizada permite generar categorías de forma aleatoria y validar las respuestas usando la API de TMDB.
